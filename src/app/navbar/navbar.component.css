@@ -1,0 +1,12 @@
+header {
+    width: auto;
+    background-color: #5CB85C;
+    border-bottom: solid rgb(195, 103, 78) 5px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.nav-item a {
+    color: white;
+}

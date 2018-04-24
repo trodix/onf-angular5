@@ -1,0 +1,37 @@
+.filtre {
+    text-align: right;
+    padding-right: 20px;
+    width: 100%;
+}
+
+.sidebar {
+    padding: 0;
+    margin: 0;
+}
+
+/* .container{
+	position: absolute;	
+	top: 10%;
+	left: 18%;
+} */
+
+.listeCheckBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-menu {
+    /*padding: 10px;
+	width: 210px; */
+    background-color: #5CB85C;
+    color: white;
+}
+
+.accueil {
+    color: white;
+    padding: 12px;
+}
+
+.filtre:hover {
+    background-color: #009037
+}

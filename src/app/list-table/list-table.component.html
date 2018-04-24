@@ -1,0 +1,46 @@
+    <h1>Liste des arbres</h1>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Rechercher par mot clé" [(ngModel)]="keyword">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <div class="container">
+      <div class="row">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class="">
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Libelle Français</th>
+                  <th scope="col">Genre</th>
+                  <th scope="col">Espece</th>
+                  <th scope="col">Commune</th>
+                  <th scope="col">#</th>
+                </tr>
+              </thead>
+              <tbody class="tbody-scroll-500">
+                <tr *ngFor="let arbre of arbres | filter : keyword">
+                  <td scope='col'>{{arbre.idArbre}}</td>
+                  <td scope='col'>{{arbre.libelleFrancais}}</td>
+                  <td scope='col'>{{arbre.libelleGenre}}</td>
+                  <td scope='col'>{{arbre.libelleEspece}}</td>
+                  <td scope='col'>{{arbre.commune}}</td>
+                  <td scope='col'>
+                    <a [routerLink]="[ '/arbres', arbre.idArbre ]">Voir</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+    <!--  container -->
