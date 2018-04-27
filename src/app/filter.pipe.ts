@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { resolve6 } from 'dns';
+//import { resolve6 } from 'dns';
 
 @Pipe({
   name: 'filter'

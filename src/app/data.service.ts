@@ -7,9 +7,27 @@ export class DataService {
 
   constructor(private http: Http) { }
 
-  fetchData() {
+  fetchDataListe() {
 
     return this.http.get('http://localhost/onf/api/arbres').map((res) => res.json());
+
+  }
+
+  fetchDataDetail(idArbre) {
+
+    return this.http.get('http://localhost/onf/api/arbres/' + idArbre).map((res) => res.json());
+
+  }
+
+  fetchDataInterventions(idArbre) {
+
+    return this.http.get('http://localhost/onf/api/getIntervention/' + idArbre).map((res) => res.json());
+
+  }
+
+  fetchDataObservations(idArbre, idIntervention){
+
+    return this.http.get('http://localhost/onf/api/getObservation/' + idArbre + '/' + idIntervention).map((res) => res.json());
 
   }
 

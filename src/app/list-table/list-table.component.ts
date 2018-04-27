@@ -18,7 +18,7 @@ export class ListTableComponent implements OnInit {
   }
 
   apiGetData() {
-    return this.dataService.fetchData().subscribe(res => this.arbres = res);
+    return this.dataService.fetchDataListe().subscribe(res => this.arbres = res);
   }
 
 }

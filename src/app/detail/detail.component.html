@@ -1,3 +1,67 @@
-<p>
-  detail works!
-</p>
+<div class="container">
+  <div class="row">
+    <h1>Details de l'arbre n° {{ arbre.idArbre }} </h1>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-block">
+          <P><strong>Commune: </strong> {{ arbre.commune }} ({{ arbre.cp }})</P>
+          <p><strong>Date de plantation: </strong>{{ arbre.datePlantation }}</p>
+          <P><strong>Genre: </strong> {{ arbre.libelleGenre }}</P>
+          <p><strong>Espece: </strong> {{ arbre.libelleEspece }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead class="">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Date intervention</th>
+              <th scope="col">Type traitement</th>
+              <th scope="col">#</th>
+            </tr>
+          </thead>
+          <tbody class="tbody-scroll-300">
+              <tr *ngFor="let uneIntervention of lesInterventions">
+                <td scope='col'>
+                  {{ uneIntervention.idArbre }}
+                </td>
+                <td scope='col'>
+                  {{ uneIntervention.dateIntervention }}
+                </td>
+                <td scope='col'>
+                  {{ uneIntervention.libelleType }}
+                </td>
+                <td scope='col'>
+                  <button  (click)="getObservations(2);" class="btn btn-success">Observations</button>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6">
+      <div class="card">
+        <div class="card-block" id="divObs">
+          <h2>Observations:</h2>
+          <P name="observationContent"  id="observationContent">Aucune observation à afficher {{ observationContent.observations }}</P>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+      <h2>Visualisation des interventions</h2>
+      <div class="card">
+        <canvas id="chartIntervention"></canvas>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,11 +13,17 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ListTableComponent } from './list-table/list-table.component';
 import { FilterPipe } from './filter.pipe';
 import { DetailComponent } from './detail/detail.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthService } from './auth.service';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
 
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },  
   { path: 'arbres/:id', component: DetailComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
   
 ]
 
@@ -30,7 +36,9 @@ const appRoutes: Routes = [
     SidebarComponent,
     ListTableComponent,
     FilterPipe,
-    DetailComponent
+    DetailComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  providers: [DataService],
+  providers: [DataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
