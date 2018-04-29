@@ -27,7 +27,7 @@ export class ChartService {
 
   fetchDataIntervention(idArbre) {
 
-    return this.http.get('http://localhost/onf/api/interventions/' + idArbre).map((res) => res.json());
+    return this.http.get('http://localhost/onf/api/interventions-count/' + idArbre).map((res) => res.json());
 
   }
 

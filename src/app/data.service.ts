@@ -21,13 +21,13 @@ export class DataService {
 
   fetchDataInterventions(idArbre) {
 
-    return this.http.get('http://localhost/onf/api/getIntervention/' + idArbre).map((res) => res.json());
+    return this.http.get('http://localhost/onf/api/interventions/' + idArbre).map((res) => res.json());
 
   }
 
   fetchDataObservations(idArbre, idIntervention){
 
-    return this.http.get('http://localhost/onf/api/getObservation/' + idArbre + '/' + idIntervention).map((res) => res.json());
+    return this.http.get('http://localhost/onf/api/observations/' + idArbre + '/' + idIntervention).map((res) => res.json());
 
   }
 

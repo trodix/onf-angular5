@@ -4,10 +4,10 @@
     width: 100%;
 }
 
-.sidebar {
+/* .sidebar {
     padding: 0;
     margin: 0;
-}
+} */
 
 /* .container{
 	position: absolute;	
@@ -15,10 +15,10 @@
 	left: 18%;
 } */
 
-.listeCheckBox {
+/* .listeCheckBox {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .vertical-menu {
     /*padding: 10px;
@@ -27,9 +27,8 @@
     color: white;
 }
 
-.accueil {
+.white {
     color: white;
-    padding: 12px;
 }
 
 .filtre:hover {

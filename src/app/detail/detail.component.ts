@@ -14,7 +14,8 @@ export class DetailComponent implements OnInit {
   idArbre = null;
   arbre = {};
   lesInterventions = [];
-  observationContent = [""];
+  observationContent = "Aucune observation à afficher";
+  chart = [];
 
   constructor(private route: ActivatedRoute, private dataService: DataService, private _chart: ChartService) { }
 
@@ -26,6 +27,7 @@ export class DetailComponent implements OnInit {
       .subscribe(res => {
         this.lesInterventions = res;
         console.log(res);
+        this.createChartIntervention();
       }));
   }
 
@@ -41,7 +43,7 @@ export class DetailComponent implements OnInit {
     for(let element of this.lesInterventions) {
       if (element.idIntervention == idIntervention) {
         if (element.observations == null) {
-          this.observationContent[0] = "Aucune observation à afficher"
+          this.observationContent = "Aucune observation à afficher"
         } else {
           this.observationContent = element.observations;
         }
@@ -58,14 +60,15 @@ export class DetailComponent implements OnInit {
     let AllLibelleIntervention = [];
     let AllQte = [];
     let titre = 'Type de traitement par arbre';
-    this._chart.fetchDataGenre()
+    this._chart.fetchDataIntervention(this.idArbre)
       .subscribe(res => {
         dataIntervention = res.map(res => dataIntervention = res);
         //console.log(dataGenre);
         dataIntervention.forEach(item => {
           AllLibelleIntervention.push(item.libelleType);
-          AllQte.push(3);//item.qteArbreTypeIntervention);
+          AllQte.push(item.qteArbreTypeIntervention);
         });
+        console.log(dataIntervention)
         // creation du graph ici
         this.initGraph('canevasIntervention', 'Interventions', AllLibelleIntervention, AllQte, titre);
       });
@@ -90,7 +93,7 @@ export class DetailComponent implements OnInit {
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.defaultFontColor = '#777';
 
-    let chartGenres = new Chart(myChart, {
+    this.chart = new Chart(myChart, {
       type: 'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data: {
         //labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
