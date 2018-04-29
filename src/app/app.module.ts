@@ -16,12 +16,15 @@ import { DetailComponent } from './detail/detail.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
+import { ChartComponent } from './chart/chart.component';
+import { ChartService } from './chart.service';
 
 const appRoutes: Routes = [
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },  
-  { path: 'arbres/:id', component: DetailComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'arbres/:id', component: DetailComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   
@@ -38,7 +41,8 @@ const appRoutes: Routes = [
     FilterPipe,
     DetailComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  providers: [DataService, AuthService],
+  providers: [DataService, AuthService, AuthGuard, ChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

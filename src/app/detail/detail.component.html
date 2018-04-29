@@ -39,7 +39,7 @@
                   {{ uneIntervention.libelleType }}
                 </td>
                 <td scope='col'>
-                  <button  (click)="getObservations(2);" class="btn btn-success">Observations</button>
+                  <button  (click)="getObservations(uneIntervention.idIntervention);" class="btn btn-success">Observations</button>
                 </td>
               </tr>
           </tbody>
@@ -53,14 +53,14 @@
       <div class="card">
         <div class="card-block" id="divObs">
           <h2>Observations:</h2>
-          <P name="observationContent"  id="observationContent">Aucune observation à afficher {{ observationContent.observations }}</P>
+          <P name="observationContent"  id="observationContent">{{ observationContent[0].observations }}</P>
         </div>
       </div>
     </div>
     <div class="col-12 col-sm-8 col-md-6 col-lg-4">
       <h2>Visualisation des interventions</h2>
       <div class="card">
-        <canvas id="chartIntervention"></canvas>
+        <canvas id="canevasIntervention"></canvas>
       </div>
     </div>
   </div>
