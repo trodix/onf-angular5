@@ -31,15 +31,15 @@
       <form class="form-inline navbar-nav">
         <div class="form-group filtre nav-item">
           <label for="cbGenre">Genre</label>
-          <input class="form-control mx-2 nav-link" id="cbGenre" type="checkbox" name="" placeholder="Genre" />
+          <input (click)="cacher('div-genre')" [(ngModel)]="checkedGenre" class="form-control mx-2 nav-link" id="cbGenre" type="checkbox" name="cbGenre" placeholder="Genre" />
         </div>
         <div class="form-group filtre nav-item">
           <label for="cbEspece">Espece</label>
-          <input class="form-control mx-2 nav-link" id="cbEspece" type="checkbox" name="" placeholder="Espece" />
+          <input (click)="cacher('div-espece')" [(ngModel)]="checkedEspece" class="form-control mx-2 nav-link" id="cbEspece" type="checkbox" name="cbEspece" placeholder="Espece" />
         </div>
         <div class="form-group filtre nav-item">
-            <label for="cbCommune">Commune</label>
-            <input class="form-control mx-2 nav-link" id="cbCommune" type="checkbox" name="" placeholder="Commune" />
+          <label for="cbCommune">Commune</label>
+          <input (click)="cacher('div-commune')" [(ngModel)]="checkedCommune" class="form-control mx-2 nav-link" id="cbCommune" type="checkbox" name="cbCommune" placeholder="Commune" />
         </div>
       </form>
     </div>

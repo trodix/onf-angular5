@@ -11,7 +11,7 @@ import { ChartService } from "../chart.service";
 export class ChartComponent implements OnInit {
 
   chart = [];
-   
+  estVisible = this._chartService.estVisible;
 
   //constructor(private _chart: ChartCustom, private _chartService: ChartService) { }
   constructor(private _chartService: ChartService) { }
@@ -20,6 +20,8 @@ export class ChartComponent implements OnInit {
     this.createChartGenre();
     this.createChartEspece();
     this.createChartCommune();
+    
+    this.estVisible = this._chartService.estVisible;
   }
 
   randomColorGenerator(nbColor) {

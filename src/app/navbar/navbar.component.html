@@ -13,7 +13,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a *ngIf="!_authService.loggedIn()" [routerLink]="[ '/register' ]" routerLinkActive="active" class="nav-link btn-link btn">
+          <a *ngIf="_authService.loggedIn() && _authService.loggedAdmin()" [routerLink]="[ '/register' ]" routerLinkActive="active" class="nav-link btn-link btn">
             <i class="fas fa-user-plus"></i> S'enregistrer</a>
         </li>
         <li class="nav-item">

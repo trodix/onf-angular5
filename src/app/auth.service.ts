@@ -7,6 +7,7 @@ export class AuthService {
 
   private _registerUrl = "http://localhost/onf/api/register";
   private _loginUrl = "http://localhost/onf/api/login";
+  _privilege = "";
 
   constructor(private http: Http, private _router: Router) { }
 
@@ -18,9 +19,14 @@ export class AuthService {
     return this.http.post(this._loginUrl, user);
   }
 
-  loggedIn() {
+  loggedIn(): boolean {
     // Retourne true ou false / true si la clé token existe dans le localStorage
     return !!localStorage.getItem('token');
+  }
+
+  loggedAdmin(): boolean {
+    // Retourne true ou false / true si l'utilisateur est admin
+    return this._privilege == "admin";
   }
 
   logoutUser() {

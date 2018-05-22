@@ -5,6 +5,17 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ChartService {
 
+  _estVisible: boolean;
+
+  get estVisible(): boolean {
+    //console.log("chartComponent get: " + this.estVisible);
+    return this._estVisible;
+  }
+  set estVisible(visible: boolean) {
+    this._estVisible = visible;
+    console.log("chartComponent set: " + this.estVisible);
+  };
+
   constructor(private http: Http) { }
 
   fetchDataGenre() {

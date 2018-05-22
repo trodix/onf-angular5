@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
+import { AuthAdminGuard } from './auth-admin.guard';
 import { ChartComponent } from './chart/chart.component';
 import { ChartService } from './chart.service';
 
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'arbres/:id', component: DetailComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard, AuthAdminGuard]},
   { path: 'login', component: LoginComponent },
   
 ]
@@ -50,7 +51,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  providers: [DataService, AuthService, AuthGuard, ChartService],
+  providers: [DataService, AuthService, AuthGuard, ChartService, AuthAdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
